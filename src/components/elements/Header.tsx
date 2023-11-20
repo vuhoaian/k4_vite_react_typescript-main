@@ -24,7 +24,9 @@ export const Header = () => {
             Products
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Liked
+          <Link to="/profile" className="text-sm font-semibold leading-6 text-gray-900">
+            Profile 
+          </Link>
           </a>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
