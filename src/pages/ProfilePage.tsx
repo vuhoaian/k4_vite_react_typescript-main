@@ -8,7 +8,7 @@ const LoginPage = () => {
       <div className="mt-6 w-fit mx-auto">
         <img
           src="https://scontent.fhan14-4.fna.fbcdn.net/v/t39.30808-6/395052227_1351347252157931_853514659471710723_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFZOqlWI_vFHUazjVS_QdI9bqStUnq4uXhupK1Seri5eJafgbzAijB_5uXqIye_u5hkE3Bh18tkT3E3NajoQzxk&_nc_ohc=LN7vFictJXMAX8ypzcE&_nc_ht=scontent.fhan14-4.fna&oh=00_AfDArWI0YkvPnBmAZuILVHKQtCuh9Z61ywEojXZkFr3i-g&oe=6560D682"
-          className="rounded-full w-28 "
+          className="rounded-full w-40 "
           alt="profile picture"
           srcSet=""
         />
@@ -62,7 +62,7 @@ const LoginPage = () => {
             </div>
           </div>
           <div className="h-1 w-full bg-black mt-[5px] rounded-full">
-              <div className="h-1 rounded-full w-[70%] bg-yellow-500 " />
+              <div className="h-1 rounded-full w-[70%] bg-yellow-500"/>
             </div>
           </div>
         </div>
