@@ -25,9 +25,8 @@ const LoginPage = () => {
 
   const handleSubmitForm = async (event: React.SyntheticEvent) => {
     event.preventDefault()
-    
     try {
-      const { data } = await axios.post('https://fakestoreapi.com/auth/login', {
+      const { data } = await axios.post('https://fakestoreapi.com/auth/login',{
         accountInfo
       })
       console.log(data.token)
