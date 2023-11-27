@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 type AccountInfo = {
@@ -11,8 +11,8 @@ type AccountInfo = {
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  const [email, setEmmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  // const [email, setEmmail] = useState<string>("");
+  // const [password, setPassword] = useState<string>("");
 
   const [accountInfo, setAccountInfo] = useState<AccountInfo>({
     email: '',
