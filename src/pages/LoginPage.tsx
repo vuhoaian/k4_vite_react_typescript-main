@@ -1,8 +1,51 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
+type AccountInfo = {
+  email: string
+  password: string
+
+}
+
 const LoginPage = () => {
+  const navigate = useNavigate();
+
+  const [email, setEmmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const [accountInfo, setAccountInfo] = useState<AccountInfo>({
+    email: '',
+    password: ''
+  });
+
+  const handleChangeForm = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setAccountInfo({ ...accountInfo, [event.target.name]: event.target.value })
+  }
+
+  const handleSubmitForm = async (event: React.SyntheticEvent) => {
+    event.preventDefault()
+    
+    try {
+      const { data } = await axios.post('https://fakestoreapi.com/auth/login', {
+        accountInfo
+      })
+      console.log(data.token)
+      localStorage.setItem('token', data.token);
+      navigate('/admin/products')
+
+    } catch (error) {
+      console.log(error);
+
+    }
+
+  }
+
+  console.log(accountInfo);
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <form className="space-y-6" action="#">
+        <form className="space-y-6" onSubmit={handleSubmitForm}>
           <h5 className="text-xl font-medium text-gray-900 dark:text-white">
             Sign in to our platform
           </h5>
@@ -13,6 +56,8 @@ const LoginPage = () => {
               Your email
             </label>
             <input
+            value= {accountInfo.email}
+            onChange={handleChangeForm}
               type="email"
               name="email"
               id="email"
@@ -27,6 +72,8 @@ const LoginPage = () => {
               Your password
             </label>
             <input
+            value={accountInfo.password}
+            onChange={handleChangeForm}
               type="password"
               name="password"
               id="password"
